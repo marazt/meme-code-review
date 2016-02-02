@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+
+  "name": "Meme Code Review",
+  "short_name": "Meme Code Review",
+  "description": "A funny extension to be able to add memes into your code review",
+  "version": "1.0",
+  "icons": {
+    "16": "img/icon16.png",
+    "48": "img/icon48.png",
+    "128": "img/icon128.png"
+  },
+
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "storage.js",
+      "background.js"
+    ]
+  },
+  "web_accessible_resources": [
+    "img/logo.png"
+  ],
+  "browser_action": {
+    "default_icon": "img/logo.png",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [ "https://bitbucket.org/*" ],
+      "js": [ "jquery.min.js", "storage.js", "inject_bitbucket.js" ]
+    },
+    {
+      "matches": [ "https://github.com/*" ],
+      "js": [ "jquery.min.js", "storage.js", "inject_github.js" ]
+    }
+  ]
+}
