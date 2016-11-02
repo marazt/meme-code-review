@@ -2,9 +2,7 @@
  * Fucntion to load memes from chrome storage
  * @param {function} action to be execute after data is loaded
 */
-var loadMemes = function (action) {
-    //var items = localStorage["items"];
-    //items = items ? JSON.parse(items) : [];
+const loadMemes = function (action) {
     chrome.storage.local.get("memeItems", function (result) {
         action(result.memeItems);
     });

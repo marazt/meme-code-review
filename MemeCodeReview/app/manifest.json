@@ -3,8 +3,8 @@
 
   "name": "Meme Code Review",
   "short_name": "Meme Code Review",
-  "description": "A funny extension to be able to add memes into your code review",
-  "version": "1.0",
+  "description": "A funny extension to be able to add memes into your code review.",
+  "version": "1.1",
   "icons": {
     "16": "img/icon16.png",
     "48": "img/icon48.png",
@@ -12,7 +12,8 @@
   },
 
   "permissions": [
-    "storage"
+    "storage",
+    "https://api.imgflip.com/*"
   ],
   "background": {
     "scripts": [
@@ -27,11 +28,11 @@
   "content_scripts": [
     {
       "matches": [ "https://bitbucket.org/*" ],
-      "js": [ "jquery.min.js", "storage.js", "inject_bitbucket.js" ]
+      "js": [ "jquery.min.js", "storage.js", "imgflip_memes.js", "inject_bitbucket.js" ]
     },
     {
       "matches": [ "https://github.com/*" ],
-      "js": [ "jquery.min.js", "storage.js", "inject_github.js" ]
+      "js": [ "jquery.min.js", "storage.js", "imgflip_memes.js", "inject_github.js" ]
     }
   ]
 }

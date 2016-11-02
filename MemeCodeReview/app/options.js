@@ -5,7 +5,7 @@ var countOfItems = 0;
 /**
  * Init function
  */
-var init = function () {
+const init = function () {
     window.memDiv = $("#memes");
     loadMemes((memes) => {
         items = memes;
@@ -21,7 +21,7 @@ var init = function () {
 /**
  * Function to add new empty item
  */
-var addNew = function () {
+const addNew = function () {
     addItem(countOfItems, "", "");
 }
 
@@ -29,18 +29,18 @@ var addNew = function () {
  * Function to remove item
  * @param {event} e  
  */
-var removeItem = function (e) {
+const removeItem = function (e) {
     $(`#${e.target.id}`).parent().remove();
     --countOfItems;
 }
 
 /**
  * Function to create item record
- * @param {} id  of the item
- * @param {} name name of the item
- * @param {} url of the item
+ * @param {string} id  of the item
+ * @param {string} name name of the item
+ * @param {string} url of the item
  */
-var addItem = function (id, name, url) {
+const addItem = function (id, name, url) {
     const key = $("<input/>", { "value": name });
     const val = $("<input/>", { "value": url, "class": "url" });
     const img = $("<img/>", { "src": url, "alt": url, "class": "sample" });
@@ -55,7 +55,7 @@ var addItem = function (id, name, url) {
 /**
  * Function to save items
  */
-var save = function () {
+const save = function () {
     items = [];
     $(".item").each(function (index, item) {
         const children = item.children;
@@ -67,16 +67,14 @@ var save = function () {
 
 /**
  * Function to bind listeners on all needed elements
- * @returns {} 
  */
-var bindListeners = function () {
+const bindListeners = function () {
     $("#add-item").on("click", addNew);
     $("#save").on("click", save);
 
     for (var i = 0; i < items.length; ++i) {
         $(`#remove-${i}`).on("click", removeItem);
     }
-
 }
 
 document.addEventListener('DOMContentLoaded', function () {

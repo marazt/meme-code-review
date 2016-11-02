@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app\background.js" />
+    <Content Include="app\imgflip_memes.js" />
     <Content Include="app\img\icon128.png" />
     <Content Include="app\img\icon16.png" />
     <Content Include="app\img\icon32.png" />
